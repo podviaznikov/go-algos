@@ -19,13 +19,13 @@ func swap (data []int, start int, end int) {
 */
 func insertionSort(data []int) []int {
   for i := 1; i < len(data); i++ {
-      for k := i; k > 0; k-- {
-          if data[k] < data[k-1] {
-            swap(data, k, k - 1)
-          }
+    for k := i; k > 0; k-- {
+      if data[k] < data[k-1] {
+        swap(data, k, k - 1)
       }
     }
-    return data;
+  }
+  return data;
 }
 
 /*
@@ -54,10 +54,10 @@ func selectionSort(data []int) []int {
 */
 func bubbleSort(data []int) []int {
   for i := 0; i < len(data); i++ {
-    for k := len(data); k > i + 1; k-- {
+    for k := len(data) - 1; k > i; k-- {
+      fmt.Println(i, k);
       if data[k] < data[k - 1] {
-        swap(data, i, k)
-        break
+        swap(data, k, k - 1)
       }
     }
   }
@@ -71,5 +71,5 @@ func main() {
     fmt.Println("initial:", insertionSortData)
     fmt.Println("inserted sort:", insertionSort(insertionSortData))
     fmt.Println("selection sort:", selectionSort(selectionSortData))
-    fmt.Println("bubble sort:", selectionSort(bubbleSortData))
+    fmt.Println("bubble sort:", bubbleSort(bubbleSortData))
 }
