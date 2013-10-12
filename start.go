@@ -19,13 +19,10 @@ func swap (data []int, start int, end int) {
 */
 func insertionSort(data []int) []int {
   for i := 1; i < len(data); i++ {
-      fmt.Println("main iteration", i)
       for k := i; k > 0; k-- {
-          fmt.Println("nested iteration", k)
           if data[k] < data[k-1] {
             swap(data, k, k - 1)
           }
-
       }
     }
     return data;
