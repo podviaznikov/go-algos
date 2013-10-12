@@ -4,6 +4,12 @@ import (
     "fmt"
 )
 
+func swap (data []int, start int, end int) {
+  s := data[start]
+  e := data[end]
+  data[start] = e
+  data[end] = s
+}
 /*
   Stable
   O(1) extra space
@@ -17,11 +23,7 @@ func insertionSort(data []int) []int {
       for k := i; k > 0; k-- {
           fmt.Println("nested iteration", k)
           if data[k] < data[k-1] {
-            
-            s := data[k]
-            b := data[k - 1]
-            data[k - 1] = s
-            data[k] = b
+            swap(data, k, k - 1)
           }
 
       }
@@ -40,10 +42,7 @@ func selectionSort(data []int) []int {
   for i := 0; i < len(data); i++ {
     for k := i+1; k < len(data); k++ {
       if data[k] < data[i] {
-        s := data[k]
-        b := data[i]
-        data[k] = b
-        data[i] = s
+        swap(data, i, k)
       }
     }
   }
