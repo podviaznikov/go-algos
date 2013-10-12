@@ -54,10 +54,9 @@ func selectionSort(data []int) []int {
 */
 func bubbleSort(data []int) []int {
   for i := 0; i < len(data); i++ {
-    for k := len(data) - 1; k > i; k-- {
-      fmt.Println(i, k);
-      if data[k] < data[k - 1] {
-        swap(data, k, k - 1)
+    for k := 0; k < len(data) - 1 - i; k++ {
+      if data[k + 1] < data[k] {
+        swap(data, k + 1, k)
       }
     }
   }
