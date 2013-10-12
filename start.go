@@ -49,10 +49,30 @@ func selectionSort(data []int) []int {
   return data
 }
 
+/*
+  Stable
+  O(1) extra space
+  O(n2) comparisons and swaps
+  Adaptive: O(n) when nearly sorted
+*/
+func bubbleSort(data []int) []int {
+  for i := 0; i < len(data); i++ {
+    for k := len(data); k > i + 1; k-- {
+      if data[k] < data[k - 1] {
+        swap(data, i, k)
+        break
+      }
+    }
+  }
+  return data
+}
+
 func main() {
     insertionSortData := []int{44, 4, 2, 47, 4, 8, 12, 1, 0, 2, 9, 23}
     selectionSortData := []int{44, 4, 2, 47, 4, 8, 12, 1, 0, 2, 9, 23}
+    bubbleSortData := []int{44, 4, 2, 47, 4, 8, 12, 1, 0, 2, 9, 23}
     fmt.Println("initial:", insertionSortData)
     fmt.Println("inserted sort:", insertionSort(insertionSortData))
     fmt.Println("selection sort:", selectionSort(selectionSortData))
+    fmt.Println("bubble sort:", selectionSort(bubbleSortData))
 }
