@@ -64,7 +64,7 @@ func bubbleSort(data []int) []int {
 }
 
 
-func merge (left []int, right []int) []int {
+func merge(left []int, right []int) []int {
   result := make([]int, len(left) + len(right))
   lc := 0
   rc := 0
